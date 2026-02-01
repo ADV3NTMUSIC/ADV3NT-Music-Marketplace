@@ -16,19 +16,19 @@ ADV3NT solves the fragmentation between digital ownership and physical experienc
 ### Frontend & UI
 - **Framework:** Next.js 15.0.7 (App Router)
 - **Styling:** Tailwind CSS + custom V2 Design System (Monochrome/True Black)
-- **Animation:** Framer Motion (Layout transitions, vinyl record physics)
+- **Animation:** Framer Motion (Layout transitions and gesture-driven drawers)
 - **Audio:** Howler.js (Persistent global singleton player)
 
 ### Backend & Database
 - **Platform:** Supabase (PostgreSQL) with Row Level Security (RLS)
 - **Auth:** Supabase Auth + MFA (TOTP) and "Sudo Mode" for sensitive artist operations
-- **Async Logic:** `pg_cron` managed job queues for ticket fulfillment and payment verification
-- **Search:** GIN Indexes (`pg_trgm`) for high-performance fuzzy search across collections and artists
+- **Async Logic:** `pg_cron` managed job queues for ticket fulfillment, escrow funding checks, and payment verification.
+- **Search:** GIN Indexes (`pg_trgm`) for high-performance fuzzy search across collections and artists.
 
 ### Infrastructure & Payments
 - **Bitcoin Infrastructure:** Custom HD wallet integration supporting BIP86 Taproot derivation for secure platform escrows.
 - **Payments:** Unified revenue engine supporting Stripe and native Bitcoin (1-confirmation enforcement).
-- **Notifications:** Transactional email pipeline via Resend.
+- **Notifications:** Transactional email pipeline via Resend for fulfillment and tipping alerts.
 
 ---
 
@@ -36,20 +36,25 @@ ADV3NT solves the fragmentation between digital ownership and physical experienc
 
 ### 1. Proprietary Bitcoin Escrow
 A non-custodial secondary market utilizing a **1-of-2 Taproot tree** (Platform leaf + Seller leaf). 
-- Allows for trustless listings where sellers maintain refund rights until a purchase is co-signed by the platform.
-- Automated funding checks via background job workers.
+- **Trustless Listings:** Sellers list items in a secure escrow while maintaining full control.
+- **Seller Autonomy:** Sellers maintain the right to withdraw their items at any time. If a seller changes their mind, they can archive the listing and "buy it back" to reclaim the asset from the escrow path.
+- **Automated Verification:** Background job workers (`pg_cron`) verify escrow funding before listings go live for buyers.
 
-### 2. Hybrid Ticketing Engine
-A "Web2.5" approach to live events:
-- **Bouncer Verification:** Two-step "Tap to Confirm" QR verification prevents accidental redemptions.
-- **Revenue Engine:** Automated primary sale splits (90/10) with a **Ghost Payee** feature—allowing artists to pay collaborators via email before the collaborator has even created an account.
-- **Token-Gating:** Server-side RPCs calculate event discounts based on user-owned digital collectibles.
+### 2. Unified Revenue Engine & "Ghost Payee"
+A sophisticated ledger system for Digital Music Collectibles (DMC) and Ordinal sales:
+- **Automated Payouts:** Handles complex revenue splits between artists and collaborators.
+- **Ghost Payee Feature:** Allows artists to slate collaborators (contributors) for revenue shares via email. Collaborators begin accruing earnings immediately, even if they haven't created an account on the platform yet.
 
-### 3. V2 "True Black" Design System
+### 3. Hybrid Ticketing Engine (Web2.5)
+A robust system for live event management and real-world utility:
+- **Box Office:** Multi-ticket cart support with automated revenue splits (90/10) between artists and the platform.
+- **Bouncer Verification:** Mobile-optimized, two-step "Tap to Confirm" QR verification prevents accidental redemptions.
+- **Token-Gated Utility:** Server-side RPCs calculate event discounts for users based on the digital collectibles they hold in their wallets.
+
+### 4. V2 "True Black" Design System
 A native dark-mode UI focused on minimalism:
 - **Persistent Player:** A singleton `AudioProvider` ensures music never stops during route transitions.
-- **Mobile-First Navigation:** Gesture-driven "Now Playing" drawers and responsive grid layouts.
-- **Vinyl Animation:** Canvas/CSS-based rotating vinyl component for an analog feel in a digital space.
+- **Mobile-First Navigation:** Gesture-driven "Now Playing" drawers and responsive grid layouts designed for high-end discovery.
 
 ---
 
@@ -68,8 +73,8 @@ A native dark-mode UI focused on minimalism:
 ## 🔒 Security & Compliance
 
 - **Hardened RLS:** Every table is protected by strict Row Level Security with a hardened search path.
-- **MFA/Sudo Mode:** Backend enforces AAL2 for sensitive operations, such as modifying payout addresses or disabling security features.
-- **Asset Protection:** High-quality master files are stored in private Supabase buckets with on-demand ZIP packaging via a server-side packaging service.
+- **MFA/Sudo Mode:** Backend enforces AAL2 (multi-factor) for sensitive operations, such as modifying payout addresses or claiming high-value assets.
+- **Asset Protection:** Master audio files are stored in private Supabase buckets with an on-demand packaging service to generate secure ZIP bundles for owners.
 
 ---
 
