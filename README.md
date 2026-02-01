@@ -1,11 +1,11 @@
 # ADV3NT Music Marketplace
 
-**ADV3NT** is a high-performance, hybrid music platform bridging Bitcoin Ordinals/RWA's (Web3) and traditional event ticketing (Web2.5). Built with **Next.js 15**, **Supabase**, and a custom **Bitcoin HD wallet** infrastructure, it provides artists with a "True Black" monochrome ecosystem to sell limited-edition digital collectibles and real-world event access.
+**ADV3NT** is a high-performance, hybrid music platform bridging Bitcoin Ordinals (Web3) and traditional event ticketing (Web2.5). Built with **Next.js 15**, **Supabase**, and a custom **Bitcoin HD wallet** infrastructure, it provides artists with a "True Black" monochrome ecosystem to sell limited-edition digital collectibles and real-world event access.
 
 ## 🚀 Project Overview
 
 ADV3NT solves the fragmentation between digital ownership and physical experiences:
-- **Music (Web3):** Artists create and sell tracks as limited-edition Bitcoin Ordinals/RWA's using a custom Taproot escrow system.
+- **Music (Web3):** Artists create and sell tracks as limited-edition Bitcoin Ordinals using a custom Taproot escrow system.
 - **Events (Web2.5):** A robust ticketing engine with QR-based verification, supporting both Stripe (Fiat) and native Bitcoin payments.
 - **Experience:** A persistent, high-fidelity audio engine wrapped in a modern, gesture-driven V2 design system.
 
