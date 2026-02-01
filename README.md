@@ -1,11 +1,11 @@
 # ADV3NT Music Marketplace
 
-**ADV3NT** is a high-performance, hybrid music platform bridging Bitcoin Ordinals (Web3) and traditional event ticketing (Web2.5). Built with **Next.js 15**, **Supabase**, and a custom **Bitcoin HD wallet** infrastructure, it provides artists with a "True Black" monochrome ecosystem to sell limited-edition digital collectibles and real-world event access.
+**ADV3NT** is a high-performance, hybrid music platform bridging Bitcoin Ordinals/RWA's (Web3) and traditional event ticketing (Web2.5). Built with **Next.js 15**, **Supabase**, and a custom **Bitcoin HD wallet** infrastructure, it provides artists with a "True Black" monochrome ecosystem to sell limited-edition digital collectibles and real-world event access.
 
 ## 🚀 Project Overview
 
 ADV3NT solves the fragmentation between digital ownership and physical experiences:
-- **Music (Web3):** Artists create and sell tracks as limited-edition Bitcoin Ordinals using a custom Taproot escrow system.
+- **Music (Web3):** Artists create and sell tracks as limited-edition Bitcoin Ordinals/RWA's using a custom Taproot escrow system.
 - **Events (Web2.5):** A robust ticketing engine with QR-based verification, supporting both Stripe (Fiat) and native Bitcoin payments.
 - **Experience:** A persistent, high-fidelity audio engine wrapped in a modern, gesture-driven V2 design system.
 
@@ -41,7 +41,7 @@ A non-custodial secondary market utilizing a **1-of-2 Taproot tree** (Platform l
 - **Automated Verification:** Background job workers (`pg_cron`) verify escrow funding before listings go live for buyers.
 
 ### 2. Unified Revenue Engine & "Ghost Payee"
-A sophisticated ledger system for Digital Music Collectibles (DMC) and Ordinal sales:
+A sophisticated ledger system for Digital Music Collectibles (DMC) and RWA/Ordinal sales:
 - **Automated Payouts:** Handles complex revenue splits between artists and collaborators.
 - **Ghost Payee Feature:** Allows artists to slate collaborators (contributors) for revenue shares via email. Collaborators begin accruing earnings immediately, even if they haven't created an account on the platform yet.
 
