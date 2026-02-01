@@ -41,7 +41,7 @@ A non-custodial secondary market utilizing a **1-of-2 Taproot tree** (Platform l
 - **Automated Verification:** Background job workers (`pg_cron`) verify escrow funding before listings go live for buyers.
 
 ### 2. Unified Revenue Engine & "Ghost Payee"
-A sophisticated ledger system for Digital Music Collectibles (DMC) and RWA/Ordinal sales:
+A sophisticated ledger system for Digital Music Collectibles (DMC) sales:
 - **Automated Payouts:** Handles complex revenue splits between artists and collaborators.
 - **Ghost Payee Feature:** Allows artists to slate collaborators (contributors) for revenue shares via email. Collaborators begin accruing earnings immediately, even if they haven't created an account on the platform yet.
 
